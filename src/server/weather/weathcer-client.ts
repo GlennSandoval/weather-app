@@ -14,9 +14,16 @@ export async function getForecast(): Promise<InlineResponse2001> {
 	const url = `${BASE_URL}/forecast.json?key=${process.env.OPENWEATHER_API_KEY}&q=Wellington&days=1&aqi=no&alerts=no`;
 	const response = await fetch(url);
 
+	if (!response.ok) {
+		throw new Error(`Error fetching forecast: ${response.statusText}`);
+	}
+
 	const data = await response.json();
 
-	await saveData("forecast-wellington", JSON.stringify(data)); // Cache for 1 hour
+	if (data.error) {
+		throw new Error(`Error fetching forecast: ${data.error.message}`);
+	}
 
+	await saveData("forecast-wellington", JSON.stringify(data));
 	return data;
 }
