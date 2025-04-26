@@ -1,20 +1,19 @@
 import { createClient } from "redis";
 
-const redis = await createClient().connect();
+const redis = await createClient({ url: process.env.REDIS_URL }).connect();
 
-export const saveData = async (data: string) => {
-	// Save data to Redis
-	await redis.set("item", data);
+export const saveData = async (key: string, data: string) => {
+	console.log("Saving data to Redis", key, data);
+	await redis.set(key, data, { EX: 60 * 5 });
 };
 
-export const getData = async () => {
-	// Fetch data from Redis
-	const result = await redis.get("item");
+export const getData = async (key: string) => {
+	const result = await redis.get(key);
 
-	// Return the result
+	console.log("Getting data from Redis", key);
 	return result;
 };
-export const deleteData = async () => {
+export const deleteData = async (key: string) => {
 	// Delete data from Redis
-	await redis.del("item");
+	await redis.del(key);
 };

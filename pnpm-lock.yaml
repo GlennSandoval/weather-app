@@ -23,6 +23,9 @@ importers:
       next:
         specifier: 15.3.1
         version: 15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      openweather-api-node:
+        specifier: ^3.1.5
+        version: 3.1.5
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -623,6 +626,9 @@ packages:
       sass:
         optional: true
 
+  openweather-api-node@3.1.5:
+    resolution: {integrity: sha512-FGLE0bWOTvp4XHaswmzMfisYMMEtwEwOEJR0vaS07L31OUcutV/UUO5/vRuktkRPoqfk3KZOoqddsRTGTxT7Aw==}
+
   path-key@3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
     engines: {node: '>=8'}
@@ -1156,6 +1162,8 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+
+  openweather-api-node@3.1.5: {}
 
   path-key@3.1.1: {}
 
