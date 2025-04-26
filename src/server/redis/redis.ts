@@ -4,7 +4,7 @@ const redis = await createClient({ url: process.env.REDIS_URL }).connect();
 
 export const saveData = async (key: string, data: string) => {
 	console.log("Saving data to Redis", key, data);
-	await redis.set(key, data, { EX: 60 * 5 });
+	await redis.set(key, data, { EX: 60 * 15 });
 };
 
 export const getData = async (key: string) => {
