@@ -32,7 +32,6 @@ export function CurrentWeather({ current }: { current: Current }) {
 					<div>{current.uv}</div>
 				</div>
 			</div>
-			<pre>{JSON.stringify(current, null, 2)}</pre>
 		</div>
 	);
 }

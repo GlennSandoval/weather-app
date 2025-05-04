@@ -1,5 +1,6 @@
 import { HydrateClient, api } from "@/trpc/server";
 import { CurrentWeather } from "./component/current";
+import { ForecastView } from "./component/forecast";
 
 export default async function Home() {
 	const { forecast: data } = await api.weather.forecast();
@@ -14,6 +15,13 @@ export default async function Home() {
 				<main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
 					{current ? (
 						<CurrentWeather current={current} />
+					) : (
+						<div className="max-w-sm animate-pulse">
+							<div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4" />
+						</div>
+					)}
+					{forecastDays ? (
+						<ForecastView forecast={forecastDays} />
 					) : (
 						<div className="max-w-sm animate-pulse">
 							<div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4" />
