@@ -3,9 +3,16 @@ import { getForecast } from "@/server/weather/weathcer-client";
 
 export const weatherRouter = createTRPCRouter({
 	forecast: publicProcedure.query(async () => {
-		const forecast = await getForecast();
-		return {
-			forecast,
-		};
+		try {
+			const forecast = await getForecast();
+			return {
+				forecast,
+			};
+		} catch (error) {
+			console.error("Error fetching forecast:", error);
+			return {
+				forecast: null,
+			};
+		}
 	}),
 });
