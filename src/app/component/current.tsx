@@ -8,7 +8,7 @@ export function CurrentWeather({ current }: { current: Current }) {
 			<div className="flex items-center gap-4">
 				<div className="flex flex-col">
 					<p className="text-2xl font-bold">{current.temp_c}°C</p>
-					<p className="text-sm text-gray-500">{condition?.text}</p>
+					<p className="text-sm text-gray-300">{condition?.text}</p>
 				</div>
 				<img
 					src={condition?.icon}
