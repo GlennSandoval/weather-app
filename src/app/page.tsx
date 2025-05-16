@@ -2,6 +2,8 @@ import { HydrateClient, api } from "@/trpc/server";
 import { CurrentWeather } from "./component/current";
 import { ForecastView } from "./component/forecast";
 
+const location = "wellington";
+
 export default async function Home() {
 	const { forecast: data } = await api.weather.forecast();
 
@@ -11,8 +13,13 @@ export default async function Home() {
 
 	return (
 		<HydrateClient>
-			<div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-linear-to-t to-sky-600 from-indigo-600">
-				<main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+			<div className="grid grid-rows-[80px_1fr_60px] items-center justify-items-center min-h-screen font-[family-name:var(--font-geist-sans)] bg-linear-to-t to-sky-600 from-indigo-600">
+				<h1 className="font-extrabold text-4xl tracking-tight sm:text-[4rem]">
+					<span className="transition duration-300 ease-in-out delay-150 hover:text-transparent bg-gradient-to-r from-red-600 via-green-500 to-indigo-400 bg-clip-text">
+						{location.toLocaleUpperCase()}
+					</span>
+				</h1>
+				<main className="flex flex-col items-start row-start-2">
 					{current ? (
 						<CurrentWeather current={current} />
 					) : (
@@ -28,7 +35,7 @@ export default async function Home() {
 						</div>
 					)}
 				</main>
-				<footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+				<footer className="row-start-3 bg-black w-full p-2 flex gap-[24px] flex-wrap items-center justify-center">
 					Powered by
 					<a href="https://www.weatherapi.com/" title="Free Weather API">
 						<img
