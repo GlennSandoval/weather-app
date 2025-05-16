@@ -7,15 +7,16 @@ export function CurrentWeather({ current }: { current: Current }) {
 			<div className="text-3xl">Current Weather</div>
 			<div className="flex items-center gap-4">
 				<div className="flex flex-col">
-					<p className="text-2xl font-bold">{current.temp_c}°C</p>
-					<p className="text-sm text-gray-300">{condition?.text}</p>
+					<p className="text-6xl font-bold">{current.temp_c}°C</p>
+					<p className="text-gray-300 ">{condition?.text}</p>
 				</div>
 				<img
 					src={condition?.icon}
 					alt={condition?.text}
-					className="w-24 h-24"
+					className="w-32 h-32"
 				/>
 			</div>
+			<div>Feels like: {current.feelslike_c || current.temp_c}</div>
 			<div className="flex flex-row gap-6 ">
 				<div className="flex flex-col items-center">
 					<div>Humidity</div>
