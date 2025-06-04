@@ -13,7 +13,7 @@ export function ForecastView({
 					return (
 						<div
 							key={forecastDay?.date_epoch}
-							className="flex flex-col items-center p-4 border rounded-lg shadow-md"
+							className="flex flex-col items-center p-4 border rounded-lg shadow-md backdrop-blur-sm"
 						>
 							<p className="text-xl font-bold">
 								{forecastDay.date?.toString()}

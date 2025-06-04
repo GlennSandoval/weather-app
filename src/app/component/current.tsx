@@ -5,7 +5,7 @@ export function CurrentWeather({ current }: { current: Current }) {
 	return (
 		<div className="flex flex-col gap-4">
 			<div className="text-3xl">Current Weather</div>
-			<div className="p-4 border rounded-lg shadow-md">
+			<div className="p-4 border rounded-lg backdrop-blur-sm shadow-md">
 				<div className="flex items-center gap-4">
 					<div className="flex flex-col">
 						<p className="text-6xl font-bold opacity-95">{current.temp_c}°C</p>
